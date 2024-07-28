@@ -1,0 +1,49 @@
+# Ignore system files
+/Application Data/
+/Cookies/
+/Desktop/AutoLogger/
+/Desktop/AV_block_remover/
+/Local Settings/
+/NetHood/
+/PrintHood/
+/Recent/
+/SendTo/
+/главное меню/
+/Мои документы/
+/Шаблоны/
+
+# Ignore user-specific files
+/3D Objects/
+/AppData/
+/Contacts/
+/Documents/
+/Downloads/
+/Favorites/
+/Links/
+/Music/
+/NTUSER.DAT
+/OneDrive/
+/Pictures/
+/Saved Games/
+/Searches/
+/Videos/
+/floobits/
+/node_modules/
+/ntuser.dat.LOG1
+/ntuser.dat.LOG2
+/ntuser.ini
+/source/
+
+# Ignore package files
+/package-lock.json
+/package.json
+
+# Ignore other files
+/.NURSign/
+/.VPNMaster/
+/.dotnet/
+/.lesshst
+/.librarymanager/
+/.node_repl_history
+/.nuget/
+/.oracle_jre_usage/
