@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 1828
+ETag: W/"724-v9KiWy4ukzfsyUX8zCD/WI2nYJA"
+Date: Mon, 29 Jul 2024 18:29:49 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+[{"_id":"66a53a59ab4610f2fa482ada","name":"Smartphone","price":599,"description":"Latest model smartphone with advanced features","category":"Electronics","image":"https://i.cdn.newsbytesapp.com/images/l163_27801535013803.jpg"},{"_id":"66a53a83ab4610f2fa482adc","name":"Laptop","price":999,"description":"High performance laptop","category":"Electronics","image":"https://images.frandroid.com/wp-content/uploads/2022/01/macbook-macos-monterey.jpg"},{"_id":"66a53a83ab4610f2fa482add","name":"Smartphone","price":599,"description":"Latest model smartphone with advanced features","category":"Electronics","image":"https://www.gizchina.com/wp-content/uploads/images/2019/08/galaxy-fol22d.jpg"},{"_id":"66a53a83ab4610f2fa482ade","name":"Tablet","price":399,"description":"Lightweight and portable tablet","category":"Electronics","image":"http://web-3.ru/data/articles/30763/1.jpg"},{"_id":"66a5ce3ae34c4d45084f8f37","name":"Laptop","price":999,"description":"High performance laptop","category":"Electronics","image":"https://microless.com/cdn/products/03af40ca45e7db0d5ee257c8ca8a1dce-hi.jpg","rating":4.5,"reviews":[{"user":"John Doe","comment":"Great laptop!","rating":5},{"user":"Jane Smith","comment":"Good value for money.","rating":4}]},{"_id":"66a506123838aded37f1cee3","name":"Laptop","price":999,"description":"High performance laptop","category":"Electronics","image":"https://enter.kg/images/kak-vybrat-noutbuk-v-bishkeke2.jpg","stock":100,"rating":4.5,"reviews":[{"userId":"user1","comment":"Great laptop!","rating":5,"date":"2024-07-28"},{"userId":"user2","comment":"Good value for money.","rating":4,"date":"2024-07-27"}]},{"_id":"66a66302eae3238976453551","name":"Airpods","description":"This is a test product.","price":100,"image":"https://img.joomcdn.net/b7d50860c30379ee85f2a74ab6d240f6380bc99e_original.jpeg"}]

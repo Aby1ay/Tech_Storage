@@ -1,69 +1,195 @@
-/* src/components/Home.css */
-
+/* Основные стили для страницы Home */
 .container {
   margin-top: 20px;
 }
 
-.jumbotron {
-  background: linear-gradient(90deg, #007bff 0%, #6610f2 100%);
+/* Герой секция */
+.hero {
+  background: #007bff;
   color: white;
-  padding: 30px;
-  border-radius: 10px;
+  padding: 60px 20px;
+  border-radius: 15px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Секционные заголовки */
 .section-title {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 20px;
   font-size: 2rem;
   text-align: center;
-  color: #007bff;
-  text-transform: uppercase;
+  color: #343a40;
+  font-weight: bold;
+}
+
+/* Карточки товаров */
+.products-preview .row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Выровнять элементы внутри карточки */
+  height: 100%; /* Занимать всю доступную высоту в контейнере */
   border: none;
-  transition: transform 0.2s;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 400px; /* Фиксированная высота карточки */
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  height: 200px; /* Фиксированная высота для изображения */
+  object-fit: cover; /* Изображение сохраняет пропорции */
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 20px;
+  flex-grow: 1; /* Позволяет расширять карточку */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Равномерное распределение контента */
 }
 
 .card-title {
-  font-size: 1.25rem;
-  color: #007bff;
+  font-size: 1.5rem;
+  color: #343a40;
+  margin-bottom: 10px; /* Отступ снизу */
 }
 
 .card-text {
   font-size: 1rem;
   color: #6c757d;
+  flex-grow: 1; /* Позволяет растягивать текст и заполнять пространство */
+  margin-bottom: 10px; /* Отступ снизу */
 }
 
-.btn-outline-secondary {
+.card-price {
+  font-size: 1.25rem;
+  font-weight: bold;
   color: #007bff;
-  border-color: #007bff;
 }
 
-.btn-outline-secondary:hover {
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
   background-color: #007bff;
   color: white;
 }
 
-.about-us {
-  margin-top: 30px;
-  padding: 20px;
-  background: #f8f9fa;
+/* Стили для слайдера */
+.products-slider {
+  margin-top: 40px;
+}
+
+.slider-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px; /* Отступы внутри элемента слайдера */
+}
+
+.slider-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.slider-img {
+  width: 100%;
+  height: 200px; /* Фиксированная высота для изображений слайдера */
+  object-fit: cover; /* Изображение сохраняет пропорции */
   border-radius: 10px;
 }
 
-.about-us p {
-  font-size: 1.1rem;
+.slider-title {
+  margin-top: 10px;
+  font-size: 1.25rem;
   color: #343a40;
 }
 
-.loading, .no-products {
+.slider-price {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Оформление новостей, отзывов и FAQ */
+.news,
+.testimonials,
+.faq {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.news-item,
+.testimonial-item,
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.testimonials h2,
+.faq h2,
+.news h2 {
+  font-size: 1.75rem;
+  color: #007bff;
+}
+
+.testimonials p,
+.faq p,
+.news p {
+  font-size: 1rem;
+  color: #343a40;
+}
+
+/* Стиль для загрузки и отсутствия продуктов */
+.loading,
+.no-products {
   text-align: center;
   font-size: 1.5rem;
   color: #6c757d;
+}
+
+/* Стили слайдера slick-carousel */
+.slick-slide img {
+  width: 100%;
+  height: auto;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+  color: #007bff;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: #0056b3;
 }

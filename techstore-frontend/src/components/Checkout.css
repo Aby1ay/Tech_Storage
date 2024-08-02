@@ -1,0 +1,72 @@
+/* Checkout.css */
+
+/* Контейнер формы */
+.checkout-form {
+  background-color: #f8f9fa; /* Светлый фон */
+  padding: 20px;
+  border-radius: 8px; /* Закругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+/* Заголовок формы */
+.checkout-form h2 {
+  font-size: 2rem;
+  color: #007bff; /* Цвет заголовка */
+  margin-bottom: 20px;
+}
+
+/* Вспомогательные элементы формы */
+.checkout-form .form-label {
+  font-weight: 500; /* Полужирный шрифт */
+}
+
+/* Кнопка оформления заказа */
+.checkout-form .btn-primary {
+  background-color: #007bff; /* Цвет кнопки */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px; /* Закругленные углы кнопки */
+}
+
+.checkout-form .btn-primary:hover {
+  background-color: #0056b3; /* Цвет кнопки при наведении */
+}
+
+/* Стиль для подтверждения заказа */
+.order-confirmation {
+  background-color: #e9ecef; /* Светлый фон */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-confirmation h2 {
+  font-size: 2rem;
+  color: #28a745; /* Зеленый цвет для успешного сообщения */
+}
+
+.order-confirmation p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.order-confirmation .btn {
+  font-size: 1.1rem;
+}
+
+.order-confirmation .btn-primary {
+  background-color: #007bff; /* Цвет кнопки */
+}
+
+.order-confirmation .btn-secondary {
+  background-color: #6c757d; /* Цвет кнопки */
+}
+
+.order-confirmation .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.order-confirmation .btn-secondary:hover {
+  background-color: #5a6268;
+}

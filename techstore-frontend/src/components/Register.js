@@ -3,7 +3,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Register() {
-  const [login, setLogin] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
@@ -17,16 +17,13 @@ function Register() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', {
-        login,
+      await axios.post('http://localhost:5000/api/auth/register', {
+        username,
         password,
       });
-
-      if (response.status === 201) {
-        window.location.href = '/login'; // Redirect to login page after successful registration
-      }
+      window.location.href = '/login'; // Перенаправление после успешной регистрации
     } catch (err) {
-      setError('Registration failed');
+      setError('Registration failed. Please try again.');
     }
   };
 
@@ -35,13 +32,13 @@ function Register() {
       <h2 className="text-center mb-4">Register</h2>
       <form onSubmit={handleRegister} className="w-50 mx-auto">
         <div className="mb-3">
-          <label htmlFor="login" className="form-label">Login</label>
+          <label htmlFor="username" className="form-label">Username</label>
           <input
             type="text"
-            id="login"
+            id="username"
             className="form-control"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>

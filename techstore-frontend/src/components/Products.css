@@ -1,60 +1,109 @@
-/* src/components/Products.css */
-
+/* Базовые стили */
 .container {
   margin-top: 20px;
+  max-width: 1200px;
 }
 
 .jumbotron {
-  background: linear-gradient(90deg, #007bff 0%, #6610f2 100%);
+  background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
   color: white;
-  padding: 30px;
+  padding: 50px 30px;
   border-radius: 10px;
   text-align: center;
 }
 
-.products-list {
-  margin-top: 30px;
+.jumbotron h1 {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
+.jumbotron p {
+  font-size: 1.4rem;
+}
+
+/* Стили разделов */
 .section-title {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-size: 2rem;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
   text-align: center;
-  color: #007bff;
+  color: #0d6efd;
   text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Базовые стили для формы поиска и селекта */
+.filters {
+  margin-top: 20px;
+}
+
+.search-input {
+  flex: 1; /* Занимает доступное пространство */
+  width: 100%; /* Занимает всю ширину родительского контейнера */
+  max-width: 600px; /* Максимальная ширина для улучшения адаптивности */
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 10px; /* Отступ между поиском и селектом */
+}
+
+.category-select {
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 200px; /* Максимальная ширина для селекта */
+}
+
+.filters .d-flex {
+  align-items: center; /* Выравнивание элементов по центру */
+}
+
+.products-list {
+  margin-top: 40px;
 }
 
 .card {
   border: none;
-  transition: transform 0.2s;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
 }
 
 .card-title {
-  font-size: 1.25rem;
-  color: #007bff;
+  font-size: 1.5rem;
+  color: #343a40;
+  margin-bottom: 10px;
 }
 
 .card-text {
   font-size: 1rem;
   color: #6c757d;
+  margin-bottom: 20px;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+.product-info {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #495057;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
+.product-price {
+  font-size: 1.25rem;
+  color: #007bff;
+  font-weight: bold;
 }
 
-.loading, .no-products {
+.loading,
+.no-products {
   text-align: center;
   font-size: 1.5rem;
   color: #6c757d;

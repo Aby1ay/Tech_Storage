@@ -1,0 +1,136 @@
+/* Плавающая кнопка с изображением */
+.support-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none; /* Убираем фон */
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Плавный переход */
+  padding: 0; /* Убираем внутренние отступы */
+  animation: float 3s ease-in-out infinite; /* Мелькание кнопки */
+}
+
+/* Анимация для плавания кнопки */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.support-icon {
+  width: 100%; /* Устанавливаем ширину иконки на 100% от кнопки */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
+  border-radius: 50%; /* Округление изображения */
+}
+
+.support-button:hover {
+  animation: shake 0.5s ease; /* Эффект дрожания при наведении */
+  transform: scale(1.1); /* Увеличение при наведении */
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.support-button:focus {
+  outline: none; /* Убрать обводку при фокусировке */
+}
+
+.support-button:active {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Более темная тень при нажатии */
+  transform: scale(1); /* Уменьшение при нажатии */
+}
+
+/* Модальное окно */
+.support-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.support-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  transform: translateY(-30px); /* Начальная позиция модального окна */
+}
+
+.support-modal-content.show {
+  transform: translateY(0); /* Позиция модального окна при отображении */
+}
+
+/* Кнопка закрытия модального окна */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #0056b3;
+}
+
+/* Форматирование формы */
+.support-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.support-form .form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.support-form .form-control,
+.support-form .form-select,
+.support-form textarea {
+  margin-bottom: 1rem;
+}
+
+.support-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.alert {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

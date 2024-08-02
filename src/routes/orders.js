@@ -1,18 +1,32 @@
 const express = require('express');
+const Order = require('../models/Order');
 const router = express.Router();
-const Order = require('../models/Order'); // Подключите вашу модель Order
 
-// Создание заказа
-router.post('/create', async (req, res) => {
-    const { user, items, total } = req.body;
+router.post('/', async (req, res) => {
+  const { userId, items, total, status } = req.body;
+  try {
+    const order = new Order({
+      userId,
+      items,
+      total,
+      status
+    });
+    await order.save();
+    res.status(201).json(order);
+  } catch (error) {
+    console.error('Ошибка при сохранении заказа:', error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
 
-    try {
-        const newOrder = new Order({ user, items, total });
-        await newOrder.save();
-        res.status(201).json({ message: 'Order created successfully' });
-    } catch (error) {
-        res.status(500).json({ message: 'Order creation failed', error });
-    }
+router.get('/', async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.status(200).json(orders);
+  } catch (error) {
+    console.error('Ошибка при получении заказов:', error.message);
+    res.status(500).json({ message: error.message });
+  }
 });
 
 module.exports = router;

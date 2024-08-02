@@ -1,49 +1,43 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+// /components/Cart.js
+import React from 'react';
+import { useCart } from '../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
+import './Cart.css';
 
 function Cart() {
-  const [cartItems, setCartItems] = useState([]);
-  const [total, setTotal] = useState(0);
+  const { cartItems, removeFromCart, calculateTotal } = useCart();
+  const navigate = useNavigate();
 
-  const handleAddToCart = (product) => {
-    const existingItem = cartItems.find((item) => item.product._id === product._id);
-    if (existingItem) {
-      setCartItems(cartItems.map((item) =>
-        item.product._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
-      ));
-    } else {
-      setCartItems([...cartItems, { product, quantity: 1 }]);
-    }
-    setTotal(total + product.price);
-  };
-
-  const handleCheckout = async () => {
-    try {
-      await axios.post('http://localhost:5000/orders/create', {
-        user: 'userId', // Замените на фактический userId
-        items: cartItems.map((item) => ({ product: item.product._id, quantity: item.quantity })),
-        total,
-      });
-      setCartItems([]);
-      setTotal(0);
-      alert('Order placed successfully');
-    } catch (error) {
-      console.error('Checkout failed', error);
-    }
+  const handleCheckout = () => {
+    navigate('/checkout');
   };
 
   return (
-    <div className="container py-5">
-      <h2 className="text-center mb-4">Cart</h2>
-      <div className="mb-3">
-        {cartItems.map((item) => (
-          <div key={item.product._id}>
-            {item.product.name} - {item.quantity} x ${item.product.price}
+    <div className="cart-container">
+      <h2>Корзина</h2>
+      {cartItems.length === 0 ? (
+        <p>Ваша корзина пуста.</p>
+      ) : (
+        <div>
+          <ul className="cart-items">
+            {cartItems.map(item => (
+              <li key={item._id} className="cart-item">
+                <img src={item.image} alt={item.name} className="cart-item-image" />
+                <div className="cart-item-details">
+                  <h3>{item.name}</h3>
+                  <p>Цена: ${item.price.toFixed(2)}</p>
+                  <p>Количество: {item.quantity}</p>
+                  <button className="remove-button" onClick={() => removeFromCart(item._id)}>Удалить</button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="cart-total">
+            Общая стоимость: ${calculateTotal().toFixed(2)}
           </div>
-        ))}
-      </div>
-      <div className="mb-3">Total: ${total}</div>
-      <button className="btn btn-primary" onClick={handleCheckout}>Checkout</button>
+          <button className="checkout-button" onClick={handleCheckout}>Оформить заказ</button>
+        </div>
+      )}
     </div>
   );
 }

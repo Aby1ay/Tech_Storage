@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom'; // useNavigate для навигации
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAuth } from '../contexts/AuthContext'; // Импортируйте хук useAuth
 
 function Login() {
-  const [login, setLogin] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { login } = useAuth(); // Используйте хук useAuth
+  const navigate = useNavigate(); // Для перенаправления
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', {
-        login,
-        password,
-      });
-
-      if (response.status === 200) {
-        window.location.href = '/'; // Redirect to home page after successful login
-      }
+      await login({ username, password });
+      navigate('/'); // Перенаправление после успешного входа
     } catch (err) {
-      setError('Login failed');
+      setError('Login failed. Please check your credentials.');
     }
   };
 
@@ -29,13 +27,13 @@ function Login() {
       <h2 className="text-center mb-4">Login</h2>
       <form onSubmit={handleLogin} className="w-50 mx-auto">
         <div className="mb-3">
-          <label htmlFor="login" className="form-label">Login</label>
+          <label htmlFor="username" className="form-label">Username</label>
           <input
             type="text"
-            id="login"
+            id="username"
             className="form-control"
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>
@@ -52,6 +50,10 @@ function Login() {
         </div>
         {error && <div className="alert alert-danger">{error}</div>}
         <button type="submit" className="btn btn-primary">Login</button>
+        <div className="mt-3 text-center">
+          <p>Don't have an account?</p>
+          <Link to="/register" className="btn btn-link">Register</Link>
+        </div>
       </form>
     </div>
   );
